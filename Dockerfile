@@ -2,6 +2,8 @@
 FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /app
 COPY . .
+# If your pom.xml is inside a subfolder, adjust the path, or if it's in a subfolder named 'backend', uncomment below:
+# WORKDIR /app/backend
 RUN mvn clean package -DskipTests
 
 # Stage 2: Run the application
